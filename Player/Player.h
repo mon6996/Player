@@ -20,7 +20,6 @@ private:
 	float acceleration;
 	float drag;
 	float gravity;
-	float velocityMaxY;
 
 	void initAnimState();
 	void initTexture();
