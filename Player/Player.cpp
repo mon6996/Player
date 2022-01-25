@@ -17,10 +17,10 @@ void Player::initTexture()
 void Player::initSprite()
 {
 	this->sprite.setTexture(this->textureSheet);
-	this->currentFrame = IntRect(0, 0, 48, 48);
+	this->currentFrame = IntRect(0, 0, 32, 32);
 
 	this->sprite.setTextureRect(this->currentFrame);
-	this->sprite.setScale(1.f, 1.f);
+	this->sprite.setScale(1.5f, 1.5f);
 }
 
 void Player::initAnimations()
@@ -120,7 +120,7 @@ void Player::updateMovement()
 		{
 			this->sprite.move(9.f, -20.f);
 		}
-		else if (this->currentFrame.top == 48.f)
+		else if (this->currentFrame.top == 32.f)
 		{
 			this->sprite.move(-9.f, -20.f);
 		}
@@ -147,7 +147,7 @@ void Player::updateAnimations()
 		{
 			if (this->currentFrame.top == 0.f)
 				this->currentFrame.left = 0.f;
-			else if (this->currentFrame.top == 48.f)
+			else if (this->currentFrame.top == 32.f)
 				this->currentFrame.left = 0.f;
 
 			this->animationTimer.restart();
@@ -159,8 +159,8 @@ void Player::updateAnimations()
 		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.1f)
 		{
 			this->currentFrame.top = 0.f;
-			this->currentFrame.left += 48.f;
-			if (this->currentFrame.left >= 192.f)
+			this->currentFrame.left += 32.f;
+			if (this->currentFrame.left >= 128.f)
 				this->currentFrame.left = 0;
 
 			this->animationTimer.restart();
@@ -171,9 +171,9 @@ void Player::updateAnimations()
 	{
 		if (this->animationTimer.getElapsedTime().asSeconds() >= 0.1f)
 		{
-			this->currentFrame.top = 48.f;
-			this->currentFrame.left += 48.f;
-			if (this->currentFrame.left >= 192.f)
+			this->currentFrame.top = 32.f;
+			this->currentFrame.left += 32.f;
+			if (this->currentFrame.left >= 128.f)
 				this->currentFrame.left = 0;
 
 			this->animationTimer.restart();
@@ -186,13 +186,13 @@ void Player::updateAnimations()
 		{
 			if (this->currentFrame.top == 0.f)
 			{
-				this->currentFrame.left = 48.f;
+				this->currentFrame.left = 32.f;
 				if(this->onGround)
 					this->currentFrame.left = 0;
 			}
-			else if (this->currentFrame.top == 48.f)
+			else if (this->currentFrame.top == 32.f)
 			{
-				this->currentFrame.left = 48.f;
+				this->currentFrame.left = 32.f;
 				if (this->onGround)
 					this->currentFrame.left = 0;
 			}
@@ -207,13 +207,13 @@ void Player::updateAnimations()
 		{
 			if (this->currentFrame.top == 0.f)
 			{
-				this->currentFrame.left = 48.f;
+				this->currentFrame.left = 32.f;
 				if (this->onGround)
 					this->currentFrame.left = 0;
 			}
-			else if (this->currentFrame.top == 48.f)
+			else if (this->currentFrame.top == 32.f)
 			{
-				this->currentFrame.left = 48.f;
+				this->currentFrame.left = 32.f;
 				if (this->onGround)
 					this->currentFrame.left = 0;
 			}
