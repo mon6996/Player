@@ -1,9 +1,25 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "StateMain.h"
+#include "Asset.h"
 #include "Player.h"
 #include "Item.h"
 #include "Puzzle.h"
+
+struct Context
+{
+	unique_ptr<Engine::Asset> assets;
+	unique_ptr<Engine::StateMain> states;
+	unique_ptr<RenderWindow> window;
+
+	Context()
+	{
+		assets = make_unique<Engine::Asset>();
+		states = make_unique<Engine::StateMain>();
+		window = make_unique<RenderWindow>();
+	}
+};
 
 class Game
 {

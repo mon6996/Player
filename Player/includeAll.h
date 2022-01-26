@@ -6,6 +6,9 @@
 #include<fstream>
 #include<sstream>
 #include<vector>
+#include<stack>
+#include<memory>
+#include<map>
 
 #include<SFML/System.hpp>
 #include<SFML/Graphics.hpp>

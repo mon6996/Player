@@ -50,7 +50,12 @@ void Puzzle::deleteLastChar()
 void Puzzle::inputLogic(int charTyped)
 {
 	if (charTyped != DELETE_KEY && charTyped != ENTER_KEY && charTyped != ESCAPE_KEY)
-		this->answer << static_cast<char>(charTyped);
+	{
+		if (charTyped >= 97 && charTyped <= 122)
+			this->answer << static_cast<char>(charTyped - 32);
+		else
+			this->answer << static_cast<char>(charTyped);
+	}
 	else if (charTyped == DELETE_KEY)
 	{
 		if (this->answer.str().length() > 0)
